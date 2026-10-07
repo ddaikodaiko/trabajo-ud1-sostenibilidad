@@ -57,6 +57,84 @@ def ilu(nombre: str) -> str:
     return f'<svg class="ilu" viewBox="{caja}" aria-hidden="true">{cuerpo}</svg>'
 
 
+# Fotografías. Las propias van en assets/fotos; las de Unsplash se sirven desde su servidor.
+# clave: (origen, archivo o identificador, autor, página de la foto, texto alternativo, dónde se usa)
+UNSPLASH = "https://images.unsplash.com/"
+FOTOS = {
+    "pantallas": ("unsplash", "photo-1767424412548-1a1ac7f4b9bc", "Jakub Żerdzicki",
+                  "https://unsplash.com/photos/trading-charts-displayed-on-multiple-screens-and-tablet-vKNRKjSNbTo",
+                  "Gráficos de cotización en varias pantallas y una tableta.", "Inicio, contextualización"),
+    "monedas": ("unsplash", "photo-1579621970563-ebec7560ff3e", "Micheile Henderson",
+                "https://unsplash.com/photos/green-plant-on-brown-round-coins-lZ_4nPFKcV8",
+                "Una planta pequeña que crece sobre un montón de monedas.", "Parte 1, cabecera"),
+    "aerogeneradores": ("unsplash", "photo-1553897597-1cdcec3d8b29", "Har",
+                        "https://unsplash.com/photos/three-white-wind-turbines-on-green-field-91fBfc7B4GE",
+                        "Tres aerogeneradores blancos en un campo verde.", "Parte 1, cambio climático"),
+    "troncos": ("propia", "troncos", "", "", "Troncos de madera apilados tras una tala.", "Parte 1, gestión de recursos"),
+    "puerto": ("propia", "puerto", "", "", "Barcas de pesca amarradas en un puerto con el agua cubierta de plásticos.", "Parte 1, biodiversidad"),
+    "costura": ("unsplash", "photo-1746395592054-dc3aed101f72", "Wiktoria Skrzekotowska",
+                "https://unsplash.com/photos/people-are-sewing-clothes-with-sewing-machines-6Zh87jbMSEA",
+                "Manos cosiendo prendas con máquinas de coser en un taller.", "Parte 1, derechos humanos"),
+    "condiciones": ("propia", "condiciones", "", "", "Una persona con traje sostiene una tarjeta con el texto «Terms and conditions».", "Parte 1, condiciones laborales"),
+    "imanes": ("propia", "imanes", "", "", "Puerta de un frigorífico cubierta de imanes de recuerdo de muchos países.", "Parte 1, diversidad"),
+    "consejo": ("unsplash", "photo-1431540015161-0bf868a2d407", "Benjamin Child",
+                "https://unsplash.com/photos/oval-brown-wooden-conference-table-and-chairs-inside-conference-room-GWe0dlVD9e0",
+                "Sala de juntas vacía con una mesa ovalada de madera y sillas alrededor.", "Parte 1, estructura directiva"),
+    "lupa": ("unsplash", "photo-1609877992115-8cd060c2e9e4", "Teslariu Mihai",
+             "https://unsplash.com/photos/black-magnifying-glass-on-white-printer-paper-O7LDeH0Qo_0",
+             "Una lupa negra apoyada sobre hojas de papel.", "Parte 1, transparencia"),
+    "balanza": ("unsplash", "photo-1587740896339-96a76170508d", "Elena Mozhvilo",
+                "https://unsplash.com/photos/j06gLuKK0GM",
+                "Una pequeña balanza dorada sobre una superficie de madera.", "Parte 1, ética empresarial"),
+    "bolsa": ("unsplash", "photo-1639133037499-31d957fad7fd", "L’Odyssée Belle",
+              "https://unsplash.com/photos/a-black-and-white-photo-of-a-building-with-columns-m1vk1Rn0my8",
+              "Fachada con columnas de la Bolsa de Madrid, en blanco y negro.", "Parte 2, cabecera"),
+    "ropa": ("unsplash", "photo-1632194978058-4f2f48bc68c2", "Greg Rosenke",
+             "https://unsplash.com/photos/a-rack-of-shirts-hanging-on-a-rack-in-a-store-hWdzH8YY8kk",
+             "Camisetas de colores colgadas en el perchero de una tienda.", "Parte 3, cabecera"),
+    "reunion": ("unsplash", "photo-1573166364839-1bfe9196c23e", "Christina (wocintechchat.com)",
+                "https://unsplash.com/photos/people-having-meeting-on-rectangular-brown-table-ftCWdZOFZqo",
+                "Varias personas reunidas alrededor de una mesa de trabajo.", "Parte 4, cabecera"),
+}
+
+
+def _fuentes(clave: str, anchos: tuple, alto_por_ancho: float) -> tuple:
+    """Devuelve (src, srcset) para una foto a varios anchos."""
+    origen, ident = FOTOS[clave][0], FOTOS[clave][1]
+    if origen == "propia":
+        urls = [(f"assets/fotos/{ident}-{a}.webp", a) for a in anchos]
+    else:
+        urls = [(f"{UNSPLASH}{ident}?auto=format&amp;fit=crop&amp;w={a}&amp;h={round(a * alto_por_ancho)}&amp;q=70", a) for a in anchos]
+    return urls[-1][0], ", ".join(f"{u} {a}w" for u, a in urls)
+
+
+def foto_tarjeta(clave: str) -> str:
+    """Foto de la parte alta de una tarjeta de factor (formato 8:5)."""
+    src, srcset = _fuentes(clave, (480, 960), 5 / 8)
+    alt = FOTOS[clave][4]
+    return (f'<img class="factor__foto" data-foto src="{src}" srcset="{srcset}" '
+            f'sizes="(max-width: 56rem) 92vw, 20rem" width="960" height="600" alt="{alt}" loading="lazy" decoding="async">')
+
+
+def foto_banda(clave: str, pie: str) -> str:
+    """Foto ancha con pie a mano y crédito (formato 21:9)."""
+    src, srcset = _fuentes(clave, (640, 1280, 1920), 27 / 64)
+    _, _, autor, pagina, alt, _ = FOTOS[clave]
+    return (f'<figure class="foto-banda"><img data-foto src="{src}" srcset="{srcset}" '
+            f'sizes="(max-width: 66rem) 94vw, 60rem" width="1920" height="810" alt="{alt}" decoding="async">'
+            f'<figcaption><span class="foto-banda__pie">{pie}</span>'
+            f'<span class="foto-banda__credito">Foto: <a href="{pagina}">{autor}</a>, Unsplash</span></figcaption></figure>')
+
+
+def creditos() -> str:
+    """Lista de créditos de las fotos de Unsplash para la página de referencias."""
+    filas = []
+    for origen, _, autor, pagina, alt, donde in FOTOS.values():
+        if origen == "unsplash":
+            filas.append(f'    <li>{autor}. <a href="{pagina}">{alt.rstrip(".")}</a>. Unsplash.<em>{donde}.</em></li>')
+    return '<ul class="refs">\n' + "\n".join(filas) + "\n  </ul>"
+
+
 PLANTILLA = """<!doctype html>
 <html lang="es">
 <head>
@@ -130,6 +208,10 @@ def main() -> None:
         cuerpo = (SRC / archivo).read_text(encoding="utf-8")
         # ilustraciones: {{ilu:nombre}}
         cuerpo = re.sub(r"\{\{ilu:([a-z]+)\}\}", lambda m: ilu(m.group(1)), cuerpo)
+        # fotos: {{foto:clave}} en tarjetas, {{banda:clave|pie}} a lo ancho y {{creditos}}
+        cuerpo = re.sub(r"\{\{foto:([a-z]+)\}\}", lambda m: foto_tarjeta(m.group(1)), cuerpo)
+        cuerpo = re.sub(r"\{\{banda:([a-z]+)\|([^}]+)\}\}", lambda m: foto_banda(m.group(1), m.group(2)), cuerpo)
+        cuerpo = cuerpo.replace("{{creditos}}", creditos())
         # espacio de no separación entre la cifra y el signo de porcentaje
         cuerpo = re.sub(r"(\d) %", r"\1&nbsp;%", cuerpo)
         titulo_completo = titulo if archivo == "index.html" else f"{titulo} | ISR e IBEX ESG"
