@@ -7,7 +7,8 @@
 <meta name="description" content="Trabajo sobre las Inversiones Socialmente Responsables y el índice IBEX ESG.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Open+Sans:ital,wght@0,400..800;1,400&family=Playfair+Display:ital,wght@0,500..700;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Open+Sans:ital,wght@0,400..800;1,400&family=Playfair+Display:ital,wght@0,500..700;1,600&display=swap"></noscript>
 <link rel="stylesheet" href="assets/estilos.css">
 </head>
 <body>
@@ -34,6 +35,9 @@
   <p class="entradilla">Un trabajo sobre las Inversiones Socialmente Responsables (ISR) y el índice IBEX ESG, que selecciona a las empresas españolas cotizadas según su nota en sostenibilidad. Usamos Inditex como caso de estudio.</p>
 
   <figure class="escala" aria-labelledby="escala-pie">
+    <p class="apunte apunte--corte" aria-hidden="true">aquí está el corte
+      <svg viewBox="0 0 60 44"><path d="M8 4c18 2 34 10 40 30" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M39 27l10 9 3-13" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </p>
     <div class="escala__regla" role="img" aria-label="Escala de calificación de Inrate con doce niveles, de A+ a D-. El IBEX ESG admite de A+ a C+ y deja fuera de C a D-.">
       <div class="escala__nivel escala__nivel--dentro">A+</div>
       <div class="escala__nivel escala__nivel--dentro">A</div>
@@ -131,6 +135,6 @@
 <p class="pie">Trabajo de clase elaborado por Marcos Ramos, Gonzalo Redondo, Jaime Ramos y Victor Cerveros. Las cifras llevan su fecha y su fuente; la lista completa está en <a href="referencias.html">Referencias y webs</a>.</p>
 </main>
 </div>
-<script src="assets/sitio.js"></script>
+<script src="assets/sitio.js" defer></script>
 </body>
 </html>

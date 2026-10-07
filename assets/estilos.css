@@ -529,18 +529,97 @@ h3 { font-weight: 600; color: var(--azul-titulo); }
 
 /* Carrusel de la evolución histórica (láminas del equipo) */
 .carrusel { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; }
-.carrusel__pista { list-style: none; margin: 0; padding: 0; max-width: none; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.carrusel__pista { list-style: none; margin: 0; padding: 0; max-width: none; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.carrusel__lamina { aspect-ratio: 2 / 1; background: var(--lavanda-suave); }
 .carrusel__pista::-webkit-scrollbar { display: none; }
 .carrusel__lamina { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
 .carrusel__lamina img { display: block; width: 100%; height: auto; }
-.carrusel__barra { display: grid; grid-template-columns: auto 1fr auto; gap: 0.8rem; align-items: center; padding: 0.7rem 0.9rem; border-top: 1px solid var(--linea); }
+.carrusel__barra { display: grid; grid-template-columns: auto 1fr auto auto; gap: 0.5rem; align-items: center; padding: 0.7rem 0.9rem 0.5rem; border-top: 1px solid var(--linea); }
 .carrusel__estado { text-align: center; line-height: 1.25; }
 .carrusel__estado strong { display: block; font-family: var(--display); font-size: 1.15rem; color: var(--azul-titulo); }
 .carrusel__estado span { font-size: 0.86rem; color: var(--tinta-3); }
 .carrusel__boton { font: inherit; font-weight: 700; padding: 0.5rem 1rem; border-radius: 6px; border: 2px solid var(--pino); background: var(--pino); color: #fff; cursor: pointer; }
 .carrusel__boton:hover { background: var(--pino-2); border-color: var(--pino-2); }
-.carrusel__boton:disabled { background: var(--hoja); color: var(--tinta-3); border-color: var(--linea); cursor: default; }
+.carrusel__boton--flecha { padding: 0.2rem 0.9rem 0.35rem; font-size: 1.5rem; line-height: 1; }
+.carrusel__boton--pausa { background: var(--hoja); color: var(--pino); min-width: 6.6rem; }
+.carrusel__boton--pausa:hover { color: #fff; }
+.carrusel__puntos { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; padding: 0 0.9rem 0.8rem; }
+.carrusel__puntos i { height: 4px; border-radius: 2px; background: var(--linea); }
+.carrusel__puntos i.activo { background: var(--marca); }
 .carrusel + .fuente + .escalera, .carrusel + .fuente { margin-bottom: 0; }
 .escalera { margin-top: 1.2rem; }
-@media (prefers-reduced-motion: reduce) { .carrusel__pista { scroll-behavior: auto; } }
-@media (max-width: 30rem) { .carrusel__boton { padding: 0.45rem 0.7rem; font-size: 0.9rem; } }
+@media (max-width: 30rem) { .carrusel__boton--pausa { padding: 0.45rem 0.6rem; font-size: 0.88rem; min-width: 5.6rem; } .carrusel__estado strong { font-size: 1rem; } }
+
+/* =====================================================================
+   Toque hecho a mano: menos cajas, subrayador, trazos irregulares
+   y notas del equipo con letra manuscrita.
+   ===================================================================== */
+
+:root {
+  --mano: "Caveat", "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+  --trazo: 255px 14px 225px 14px / 14px 225px 14px 255px;
+  --onda-naranja: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M2 7c10-6 18 5 28 0s18-6 28 0 18 5 28 0 20-5 32-1' fill='none' stroke='%23f08c3a' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+  --onda-tinta: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 8'%3E%3Cpath d='M0 4c6-5 6 5 12 0s6-5 12 0 6 5 12 0 6-5 12 0' fill='none' stroke='%231b2045' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+
+/* Títulos de sección con un subrayado ondulado, no con una regla recta */
+.seccion > h2 { padding-bottom: 0.9rem; background: var(--onda-naranja) left bottom / 6.5rem 0.6rem no-repeat; }
+.cabecera { border-bottom: 0; padding-bottom: 2.6rem; background: var(--onda-tinta) left bottom / 48px 8px repeat-x; }
+.siguiente { border-top: 0; padding-top: 2.2rem; background: var(--onda-tinta) left top / 48px 8px repeat-x; }
+
+/* Rasgos: texto suelto con el título pasado por subrayador, sin caja */
+.rasgo { background: none; border: 0; border-radius: 0; padding: 0.2rem 0.2rem 0 0; }
+.rasgo h4 { display: inline; background: linear-gradient(transparent 58%, var(--marca-suave) 58%); box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 0 0.15rem; }
+.rasgo p { margin-top: 0.45rem; }
+
+/* Notas del equipo: papel pegado con cinta, borde irregular y letra a mano */
+.decision { position: relative; background: #fff7ee; border: 2px solid var(--tinta); border-left-width: 2px; border-radius: var(--trazo); padding: 1.5rem 1.6rem 1.3rem; transform: rotate(-0.45deg); margin-top: 2rem; }
+.decision::before { content: ""; position: absolute; top: -0.75rem; left: 2.2rem; width: 5.2rem; height: 1.4rem; background: rgba(185, 189, 232, 0.75); transform: rotate(-3deg); }
+.decision h4 { font-family: var(--mano); font-weight: 700; font-size: 1.55rem; line-height: 1.1; color: var(--pino); margin-bottom: 0.5rem; }
+.aviso { position: relative; background: #fff; border: 2px solid var(--corte); border-left-width: 2px; border-radius: var(--trazo); padding: 1.4rem 1.6rem 1.3rem; transform: rotate(0.35deg); margin-top: 2rem; }
+.aviso h4 { font-family: var(--mano); font-weight: 700; font-size: 1.55rem; line-height: 1.1; color: var(--corte); margin-bottom: 0.5rem; }
+
+/* Apuntes a mano junto a gráficos y figuras */
+.apunte { font-family: var(--mano); font-weight: 600; font-size: 1.35rem; line-height: 1.1; color: var(--pino); transform: rotate(-2deg); transform-origin: left center; margin: 0.9rem 0 0.2rem; max-width: none; }
+.apunte + .nota { margin-top: 0.2rem; }
+.apunte--linea { display: inline-block; margin: 0 0 0 0.5rem; font-size: 1.25rem; color: var(--corte); transform: rotate(-1.5deg); }
+.escala { position: relative; padding-top: 3.2rem; }
+.apunte--corte { position: absolute; top: 0; left: 30%; margin: 0; display: flex; align-items: flex-start; gap: 0.3rem; color: var(--tinta); font-size: 1.5rem; transform: rotate(-3deg); }
+.apunte--corte svg { width: 3.2rem; height: 2.4rem; margin-top: 0.5rem; }
+
+/* Comparativas y estrategias sin tarjeta alrededor, con el texto centrado como en las infografías */
+.versus { background: none; border: 0; border-radius: 0; padding: 0; }
+.versus > p { text-align: center; margin-inline: auto; max-width: 34ch; }
+.rotulo b { transform: rotate(-6deg); }
+.versus__vs { transform: translate(-50%, -50%) rotate(-8deg); }
+.tesela { background: none; border: 0; border-radius: 0; overflow: visible; }
+.tesela__texto { padding: 1rem 0.4rem 0; text-align: center; }
+.tesela__texto .ejemplo { background: none; padding: 0; font-family: var(--mano); font-size: 1.25rem; line-height: 1.15; color: var(--pino); }
+.tesela--1 .tesela__imagen { transform: rotate(-0.8deg); }
+.tesela--3 .tesela__imagen { transform: rotate(0.8deg); }
+
+/* Equipo: etiquetas con nombre, cada una un poco torcida */
+.equipo { gap: 1.1rem; }
+.equipo li { border: 2px solid var(--tinta); border-radius: var(--trazo); font-family: var(--mano); font-size: 1.5rem; padding: 0.8rem 1rem; }
+.equipo li:nth-child(1) { transform: rotate(-1.6deg); }
+.equipo li:nth-child(2) { transform: rotate(1.1deg); }
+.equipo li:nth-child(3) { transform: rotate(-0.7deg); }
+.equipo li:nth-child(4) { transform: rotate(1.8deg); }
+.equipo .inicial { font-family: var(--texto); font-size: 1rem; border-radius: 47% 53% 50% 50% / 52% 48% 52% 48%; }
+
+/* Pequeñas irregularidades en piezas repetidas */
+.mapa a { border-radius: 10px 10px 10px 2px; }
+.mapa li:nth-child(even) a { border-radius: 10px 10px 2px 10px; }
+.mapa a:hover { box-shadow: 4px 4px 0 var(--marca); border-color: var(--tinta); }
+.indice-pagina a { border-radius: var(--trazo); border-width: 1.5px; border-color: var(--tinta-3); }
+.rail nav a[aria-current="page"] { border-radius: var(--trazo); }
+.definicion { border-radius: 10px 10px 10px 2px; }
+.cabecera .parte, .mapa .parte { font-family: var(--mano); font-style: normal; font-weight: 700; font-size: 1.4rem; }
+
+@media (max-width: 56rem) {
+  .apunte--corte { left: 22%; font-size: 1.3rem; }
+  .decision, .aviso { transform: none; }
+  .equipo li { font-size: 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) { .mapa a:hover { box-shadow: none; } }
+.rejilla > .hoja { margin-top: 0; }
