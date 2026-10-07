@@ -58,3 +58,48 @@
   form.addEventListener("submit", function (e) { e.preventDefault(); });
   evaluar();
 })();
+
+// Carrusel de la evolución histórica (Parte 1)
+(function () {
+  var carrusel = document.getElementById("carrusel-evolucion");
+  if (!carrusel) return;
+  var pista = carrusel.querySelector(".carrusel__pista");
+  var laminas = pista.querySelectorAll(".carrusel__lamina");
+  var anterior = carrusel.querySelector("[data-carrusel='anterior']");
+  var siguiente = carrusel.querySelector("[data-carrusel='siguiente']");
+  var titulo = carrusel.querySelector("[data-carrusel='titulo']");
+  var cuenta = carrusel.querySelector("[data-carrusel='cuenta']");
+  var actual = 0;
+
+  function pintar() {
+    titulo.textContent = laminas[actual].getAttribute("data-titulo");
+    cuenta.textContent = (actual + 1) + " de " + laminas.length;
+    anterior.disabled = actual === 0;
+    siguiente.disabled = actual === laminas.length - 1;
+  }
+
+  function ir(n) {
+    actual = Math.max(0, Math.min(laminas.length - 1, n));
+    pista.scrollTo({ left: pista.clientWidth * actual });
+    pintar();
+  }
+
+  anterior.addEventListener("click", function () { ir(actual - 1); });
+  siguiente.addEventListener("click", function () { ir(actual + 1); });
+  pista.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowRight") { e.preventDefault(); ir(actual + 1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); ir(actual - 1); }
+  });
+
+  // Si se desliza con el dedo, se actualiza el rótulo al terminar
+  var espera;
+  pista.addEventListener("scroll", function () {
+    clearTimeout(espera);
+    espera = setTimeout(function () {
+      var n = Math.round(pista.scrollLeft / pista.clientWidth);
+      if (n !== actual) { actual = n; pintar(); }
+    }, 120);
+  });
+  window.addEventListener("resize", function () { pista.scrollTo({ left: pista.clientWidth * actual, behavior: "auto" }); });
+  pintar();
+})();

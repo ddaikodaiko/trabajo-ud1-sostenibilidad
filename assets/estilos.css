@@ -526,3 +526,21 @@ h3 { font-weight: 600; color: var(--azul-titulo); }
   .versus__lado { min-height: 10.5rem; }
 }
 .versus__lado small { min-height: 2.6em; display: grid; align-items: center; }
+
+/* Carrusel de la evolución histórica (láminas del equipo) */
+.carrusel { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; }
+.carrusel__pista { list-style: none; margin: 0; padding: 0; max-width: none; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; }
+.carrusel__pista::-webkit-scrollbar { display: none; }
+.carrusel__lamina { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+.carrusel__lamina img { display: block; width: 100%; height: auto; }
+.carrusel__barra { display: grid; grid-template-columns: auto 1fr auto; gap: 0.8rem; align-items: center; padding: 0.7rem 0.9rem; border-top: 1px solid var(--linea); }
+.carrusel__estado { text-align: center; line-height: 1.25; }
+.carrusel__estado strong { display: block; font-family: var(--display); font-size: 1.15rem; color: var(--azul-titulo); }
+.carrusel__estado span { font-size: 0.86rem; color: var(--tinta-3); }
+.carrusel__boton { font: inherit; font-weight: 700; padding: 0.5rem 1rem; border-radius: 6px; border: 2px solid var(--pino); background: var(--pino); color: #fff; cursor: pointer; }
+.carrusel__boton:hover { background: var(--pino-2); border-color: var(--pino-2); }
+.carrusel__boton:disabled { background: var(--hoja); color: var(--tinta-3); border-color: var(--linea); cursor: default; }
+.carrusel + .fuente + .escalera, .carrusel + .fuente { margin-bottom: 0; }
+.escalera { margin-top: 1.2rem; }
+@media (prefers-reduced-motion: reduce) { .carrusel__pista { scroll-behavior: auto; } }
+@media (max-width: 30rem) { .carrusel__boton { padding: 0.45rem 0.7rem; font-size: 0.9rem; } }
