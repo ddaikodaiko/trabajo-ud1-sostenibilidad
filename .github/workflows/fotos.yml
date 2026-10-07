@@ -1,0 +1,25 @@
+name: Descargar fotos
+on:
+  push:
+    branches: [fotos-tmp]
+permissions:
+  contents: write
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar originales de Unsplash
+        run: |
+          mkdir -p originales
+          while read nombre id; do
+            curl -sSL -w "$nombre %{http_code} %{content_type} %{size_download}\n" \
+              "https://images.unsplash.com/$id?fm=jpg&q=85&w=2400&fit=max" -o "originales/$nombre.jpg" | tee -a originales/registro.txt
+          done < lista.txt
+      - name: Guardar en la rama
+        run: |
+          git config user.name "Marcos Ramos"
+          git config user.email "ramosespinosamarcos@gmail.com"
+          git add originales
+          git commit -m "Originales de las fotos"
+          git push
