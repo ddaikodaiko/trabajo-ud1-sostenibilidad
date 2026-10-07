@@ -7,7 +7,7 @@
 <meta name="description" content="Definición, evolución, estrategias y criterios ESG de la inversión socialmente responsable.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/estilos.css">
 </head>
 <body>
@@ -59,13 +59,34 @@
 
   <div class="apartado" id="evolucion">
     <h3>Evolución histórica del concepto</h3>
-    <p>La idea ha pasado por cuatro etapas: empezó como una cuestión moral, se convirtió en una forma de presión, después en un producto financiero y hoy está regulada por ley.</p>
+    <p>En resumen, la ISR ha pasado de excluir lo que iba contra unos valores, a integrar esos criterios en el análisis y, hoy, a intentar medir el impacto.</p>
+
+    <figure class="escalera" aria-labelledby="escalera-titulo">
+      <h4 id="escalera-titulo">De excluir a medir</h4>
+      <p class="nota">Evolución de las inversiones socialmente responsables, de 1758 a hoy</p>
+      <ul class="escalera__leyenda">
+        <li style="--c: var(--lavanda)"><strong>Excluir:</strong> valores morales</li>
+        <li style="--c: var(--pino)"><strong>Integrar:</strong> riesgo y rentabilidad</li>
+        <li style="--c: var(--marca)"><strong>Medir:</strong> impacto</li>
+      </ul>
+      <ol class="escalera__barras">
+        <li class="fase-1" style="--h:22"><span>Esclavitud</span><strong>XVIII-XIX</strong></li>
+        <li class="fase-1" style="--h:35"><span>Alcohol y tabaco</span><strong>1920-60</strong></li>
+        <li class="fase-1" style="--h:48"><span>Apartheid</span><strong>1960-80</strong></li>
+        <li class="fase-2" style="--h:61"><span>Índices</span><strong>1990-2000</strong></li>
+        <li class="fase-2" style="--h:74"><span>ESG y PRI</span><strong>2000-10</strong></li>
+        <li class="fase-3" style="--h:87"><span>Taxonomía y SFDR</span><strong>2010-20</strong></li>
+        <li class="fase-3" style="--h:100"><span>Impacto medible</span><strong>2020-hoy</strong></li>
+      </ol>
+    </figure>
+    <p class="fuente">Esquema de elaboración propia. La altura de cada escalón no representa una cifra: indica que cada etapa se apoya en la anterior. Debajo, los hitos con su fecha.</p>
 
     <ol class="tiempo">
       <li>
         <p class="etapa">Raíces éticas: no invertir en lo que va contra tus valores</p>
         <ul class="hitos">
           <li><span class="anio">1758</span><span>Los cuáqueros prohíben a sus miembros participar en el comercio de esclavos.</span></li>
+          <li><span class="anio">1760</span><span>John Wesley, fundador del metodismo, predica que no se debe ganar dinero a costa de dañar al prójimo.</span></li>
           <li><span class="anio">1928</span><span>Philip Carret lanza en Estados Unidos el primer fondo abierto al público con criterios de exclusión.</span></li>
         </ul>
       </li>
@@ -106,33 +127,41 @@
     <p>La ISR no sustituye a la inversión tradicional: hace lo mismo y añade algo más. Lo vemos en cuatro puntos.</p>
 
     <div class="rejilla rejilla--2">
-      <article class="frente">
-        <h4>Objetivo</h4>
-        <dl>
-          <div><dt>Tradicional</dt><dd>Conseguir la mejor rentabilidad para un nivel de riesgo.</dd></div>
-          <div class="isr"><dt>ISR</dt><dd>Los mismos objetivos más un impacto social y ambiental positivo.</dd></div>
-        </dl>
+      <article class="versus">
+        <h4 class="rotulo"><b>1</b>Objetivo</h4>
+        <div class="versus__par">
+          <div class="versus__lado versus__lado--trad"><small>Inversión tradicional</small><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="19" fill="none" stroke="currentColor" stroke-width="3.5"/><text x="24" y="32" text-anchor="middle" font-size="23" font-weight="800" font-family="Arial, sans-serif" fill="currentColor">€</text></svg><strong>Rentabilidad financiera</strong><span>ajustada al riesgo</span></div>
+          <div class="versus__lado versus__lado--isr"><small>Inversión socialmente responsable</small><svg class="ilu" viewBox="0 0 96 48" aria-hidden="true"><circle cx="20" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="3"/><text x="20" y="31" text-anchor="middle" font-size="19" font-weight="800" font-family="Arial, sans-serif" fill="currentColor">€</text><path d="M43 24h10M48 19v10" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><g fill="none" stroke="currentColor" stroke-width="3"><circle cx="76" cy="24" r="15"/><ellipse cx="76" cy="24" rx="6.5" ry="15"/><path d="M61 24h30"/></g></svg><strong>Rentabilidad financiera</strong><span>+ impacto social y ambiental</span></div>
+          <span class="versus__vs" aria-hidden="true">VS</span>
+        </div>
+        <p>La ISR tiene todos los objetivos de la inversión tradicional más un impacto social y ambiental positivo.</p>
       </article>
-      <article class="frente">
-        <h4>Decisión</h4>
-        <dl>
-          <div><dt>Tradicional</dt><dd>Se basa en datos financieros: cuentas, ratios y cotización.</dd></div>
-          <div class="isr"><dt>ISR</dt><dd>A esos datos les añade los criterios ESG: ambientales, sociales y de gobernanza.</dd></div>
-        </dl>
+      <article class="versus">
+        <h4 class="rotulo"><b>2</b>Criterios de decisión</h4>
+        <div class="versus__par">
+          <div class="versus__lado versus__lado--trad"><small>Inversión tradicional</small><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><rect x="7" y="27" width="9" height="15"/><rect x="20" y="17" width="9" height="25"/><rect x="33" y="6" width="9" height="36"/></g></svg><strong>Solo datos financieros</strong><span>beneficios, valoración y flujo de caja</span></div>
+          <div class="versus__lado versus__lado--isr"><small>Inversión socialmente responsable</small><div class="letras-esg" aria-hidden="true"><i>E</i><i>S</i><i>G</i></div><strong>Financieros + criterios ESG</strong><span>exclusiones, best-in-class y temáticas</span></div>
+          <span class="versus__vs" aria-hidden="true">VS</span>
+        </div>
+        <p>La inversión tradicional se basa en datos financieros. La ISR les añade los criterios ambientales, sociales y de gobernanza.</p>
       </article>
-      <article class="frente">
-        <h4>Riesgo</h4>
-        <dl>
-          <div><dt>Tradicional</dt><dd>Estudia el riesgo de mercado, de crédito y de liquidez.</dd></div>
-          <div class="isr"><dt>ISR</dt><dd>Suma a los anteriores los riesgos climáticos, laborales y de reputación.</dd></div>
-        </dl>
+      <article class="versus">
+        <h4 class="rotulo"><b>3</b>Concepto de riesgo</h4>
+        <div class="versus__par">
+          <div class="versus__lado versus__lado--trad"><small>Inversión tradicional</small><svg class="ilu" viewBox="0 0 64 48" aria-hidden="true"><polyline points="4,36 18,18 28,30 42,10 60,26" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Riesgo de mercado,</strong><span>crédito y liquidez</span></div>
+          <div class="versus__lado versus__lado--isr"><small>Inversión socialmente responsable</small><svg class="ilu" viewBox="0 0 96 48" aria-hidden="true"><polyline points="4,36 16,20 26,30 38,12 52,26" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M74 6v24" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="74" cy="36" r="8" fill="currentColor"/></svg><strong>Añade riesgos extrafinancieros:</strong><span>climático, reputacional y laboral</span></div>
+          <span class="versus__vs" aria-hidden="true">VS</span>
+        </div>
+        <p>La tradicional estudia el riesgo de mercado, de crédito y de liquidez. La ISR suma a esos los riesgos climáticos y laborales.</p>
       </article>
-      <article class="frente">
-        <h4>Inversor</h4>
-        <dl>
-          <div><dt>Tradicional</dt><dd>Pasivo: si la empresa no le convence, vende.</dd></div>
-          <div class="isr"><dt>ISR</dt><dd>Activo: dialoga con la empresa y vota en la junta para que cambie.</dd></div>
-        </dl>
+      <article class="versus">
+        <h4 class="rotulo"><b>4</b>Papel del inversor</h4>
+        <div class="versus__par">
+          <div class="versus__lado versus__lado--trad"><small>Inversión tradicional</small><svg class="ilu" viewBox="0 0 64 48" aria-hidden="true"><path d="M4 24c8-12 18-17 28-17s20 5 28 17c-8 12-18 17-28 17S12 36 4 24z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><circle cx="32" cy="24" r="8" fill="currentColor"/></svg><strong>Inversor pasivo</strong><span>se fija sobre todo en el precio</span></div>
+          <div class="versus__lado versus__lado--isr"><small>Inversión socialmente responsable</small><svg class="ilu" viewBox="0 0 64 48" aria-hidden="true"><path d="M8 4h48a4 4 0 0 1 4 4v24a4 4 0 0 1-4 4H30L18 46V36H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="currentColor"/><path d="M20 20l8 8 16-17" fill="none" stroke="#f08c3a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Inversor activo</strong><span>dialoga con las empresas y vota en juntas</span></div>
+          <span class="versus__vs" aria-hidden="true">VS</span>
+        </div>
+        <p>Pasivo en la inversión tradicional y activo en la ISR, porque dialoga con las empresas para que mejoren.</p>
       </article>
     </div>
 
@@ -158,20 +187,39 @@
     <p>No hay una sola forma de invertir con criterios ESG. Estas son las tres estrategias principales.</p>
 
     <div class="rejilla rejilla--3">
-      <article class="estrategia usa-ibex">
-        <h4>Exclusión</h4>
-        <p>Es una de las estrategias más antiguas y más usadas. Consiste en dejar fuera ciertos sectores, como las armas o el tabaco, porque van en contra de los valores del inversor.</p>
-        <p class="ejemplo">Ejemplo: un fondo que no compra acciones de tabaqueras.</p>
+      <article class="tesela tesela--1">
+        <div class="tesela__imagen"><div class="prohibidos"><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 24h34v8H36l-2 4h-6l-3 12h-9l4-16h-6z" fill="#2f3c8f"/><circle cx="32" cy="32" r="27" fill="none" stroke="#f08c3a" stroke-width="6"/><path d="M13 13l38 38" stroke="#f08c3a" stroke-width="6"/></svg><svg class="ilu" viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="34" width="32" height="7" fill="#2f3c8f"/><rect x="46" y="34" width="6" height="7" fill="#2f3c8f"/><path d="M28 28c-3-4 3-6 0-10M35 28c-3-4 3-6 0-10" fill="none" stroke="#2f3c8f" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="32" r="27" fill="none" stroke="#f08c3a" stroke-width="6"/><path d="M13 13l38 38" stroke="#f08c3a" stroke-width="6"/></svg></div></div>
+        <div class="tesela__texto">
+          <h4>Exclusión</h4>
+          <p>Es una de las estrategias más antiguas y más usadas. Consiste en dejar fuera ciertos sectores, como las armas o el tabaco, porque van en contra de los valores del inversor.</p>
+          <p class="ejemplo">Ejemplo: un fondo que no compra acciones de tabaqueras.</p>
+          <span class="sello-ibex">La aplica el IBEX ESG</span>
+        </div>
       </article>
-      <article class="estrategia">
-        <h4>Integración ESG</h4>
-        <p>Los datos financieros siguen siendo la base, pero se les suma cómo trata la empresa al medio ambiente y a las personas, y cómo se gobierna.</p>
-        <p class="ejemplo">Ejemplo: entre dos bancos igual de rentables, elegir el mejor gobernado.</p>
+      <article class="tesela tesela--2">
+        <div class="tesela__imagen"><div class="pastillas">
+          <div><i>E</i><strong>Ambiental</strong><span>Cómo cuida el medio ambiente</span></div>
+          <div><i>S</i><strong>Social</strong><span>Cómo trata a las personas</span></div>
+          <div><i>G</i><strong>Gobierno</strong><span>Cómo se dirige la empresa</span></div>
+        </div></div>
+        <div class="tesela__texto">
+          <h4>Integración ESG</h4>
+          <p>Los datos financieros siguen siendo la base, pero se les suma cómo trata la empresa al medio ambiente y a las personas, y cómo se gobierna.</p>
+          <p class="ejemplo">Ejemplo: entre dos bancos igual de rentables, elegir el mejor gobernado.</p>
+        </div>
       </article>
-      <article class="estrategia">
-        <h4>Inversión temática</h4>
-        <p>Es la otra cara de la exclusión: en vez de evitar sectores, se eligen los que ayudan a resolver un problema social o ambiental, como el agua o las energías renovables.</p>
-        <p class="ejemplo">Ejemplo: un fondo que solo invierte en energía solar y eólica.</p>
+      <article class="tesela tesela--3">
+        <div class="tesela__imagen"><div class="cuadros">
+          <div><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="8" fill="currentColor"/><g stroke="currentColor" stroke-width="3.5" stroke-linecap="round"><path d="M24 4v6M24 38v6M4 24h6M38 24h6M10 10l4 4M34 34l4 4M38 10l-4 4M14 34l-4 4"/></g></svg>Renovables</div>
+          <div><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4c8 10 13 17 13 24a13 13 0 0 1-26 0c0-7 5-14 13-24z" fill="currentColor"/></svg>Agua</div>
+          <div><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M18 6h12v12h12v12H30v12H18V30H6V18h12z" fill="currentColor"/></svg>Salud</div>
+          <div><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40C8 20 20 8 42 6c-2 22-14 34-34 34z" fill="currentColor"/><path d="M8 40L30 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>Naturaleza</div>
+        </div></div>
+        <div class="tesela__texto">
+          <h4>Inversión temática</h4>
+          <p>Es la otra cara de la exclusión: en vez de evitar sectores, se eligen los que ayudan a resolver un problema social o ambiental, como el agua o las energías renovables.</p>
+          <p class="ejemplo">Ejemplo: un fondo que solo invierte en energía solar y eólica.</p>
+        </div>
       </article>
     </div>
 
@@ -189,7 +237,7 @@
         </tbody>
       </table>
     </div>
-    <p class="fuente">Clasificación adaptada de los materiales formativos de <a href="https://mooc.spainsif.es/pluginfile.php/78/mod_resource/content/3/Diapositivas%20M3%20t4.pdf">Spainsif</a>. Resaltadas en amarillo, las que utiliza el IBEX ESG.</p>
+    <p class="fuente">Clasificación adaptada de los materiales formativos de <a href="https://mooc.spainsif.es/pluginfile.php/78/mod_resource/content/3/Diapositivas%20M3%20t4.pdf">Spainsif</a>. Resaltadas en naranja, las que utiliza el IBEX ESG además de la exclusión.</p>
 
     <div class="decision">
       <h4>Decisión del equipo: en qué estrategias nos fijamos más</h4>
@@ -206,33 +254,58 @@
 
 <section class="seccion" id="criterios-esg">
   <h2><span class="de-enunciado">2.</span> Los criterios ESG (Environmental, Social, Governance)</h2>
-  <p>Son las tres familias de preguntas que se le hacen a una empresa para valorar su sostenibilidad. En todo el sitio usamos el mismo color para cada una.</p>
+  <p>Son las tres familias de preguntas que se le hacen a una empresa para valorar su sostenibilidad. En todo el sitio usamos el mismo color para cada una: lavanda para E, índigo para S y naranja para G.</p>
 
-  <div class="rejilla rejilla--3">
-    <article class="pilar pilar--e">
-      <div class="pilar__cab"><span class="letra" aria-hidden="true">E</span><h3>Factores ambientales</h3></div>
-      <dl>
-        <div><dt>Cambio climático</dt><dd>Hoy es el factor principal. Se mira cuántos gases de efecto invernadero emite la empresa, si tiene un objetivo de cero emisiones y cuánta energía renovable usa.<br><span class="indicador">Indicador: emisiones de alcance 1, 2 y 3</span></dd></div>
-        <div><dt>Gestión de recursos</dt><dd>Cómo gestiona el agua, la energía y las materias primas, y qué hace con los residuos. Si los reutiliza, avanza hacia una economía circular.<br><span class="indicador">Indicador: % de electricidad renovable</span></dd></div>
-        <div><dt>Biodiversidad</dt><dd>El efecto de su actividad sobre bosques, océanos y especies. Pesa más en sectores como la agricultura, la ganadería o la minería, donde también cuenta el trato a los animales.<br><span class="indicador">Indicador: hectáreas protegidas o restauradas</span></dd></div>
-      </dl>
-    </article>
-    <article class="pilar pilar--s">
-      <div class="pilar__cab"><span class="letra" aria-hidden="true">S</span><h3>Factores sociales</h3></div>
-      <dl>
-        <div><dt>Derechos humanos</dt><dd>Se comprueba que no se vulneran en la empresa ni en sus proveedores, sobre todo los riesgos más típicos: el trabajo forzoso y el infantil. La referencia son los Principios Rectores de la ONU.<br><span class="indicador">Indicador: auditorías sociales realizadas</span></dd></div>
-        <div><dt>Condiciones laborales</dt><dd>Cómo se trata al trabajador: seguridad, salud mental, flexibilidad de horario y un salario digno por el trabajo realizado.<br><span class="indicador">Indicador: % de contratos indefinidos</span></dd></div>
-        <div><dt>Diversidad</dt><dd>Que personas con discapacidad, de otras etnias y mujeres trabajen sin discriminación, y que se reduzca la brecha salarial entre hombres y mujeres.<br><span class="indicador">Indicador: % de mujeres en puestos directivos</span></dd></div>
-      </dl>
-    </article>
-    <article class="pilar pilar--g">
-      <div class="pilar__cab"><span class="letra" aria-hidden="true">G</span><h3>Factores de gobernanza</h3></div>
-      <dl>
-        <div><dt>Estructura directiva</dt><dd>Quién compone el consejo de administración, cuántos consejeros son independientes y si los sueldos de los altos directivos están justificados.<br><span class="indicador">Indicador: % de consejeros independientes</span></dd></div>
-        <div><dt>Transparencia</dt><dd>Si la empresa informa bien de sus cuentas y de sus riesgos: informes financieros, datos ESG e informe de sostenibilidad.<br><span class="indicador">Indicador: informe de sostenibilidad verificado</span></dd></div>
-        <div><dt>Ética empresarial</dt><dd>Que no esté implicada en casos de corrupción o soborno, que tenga un código ético y un canal de denuncias anónimo para los empleados.<br><span class="indicador">Indicador: código de conducta y canal ético</span></dd></div>
-      </dl>
-    </article>
+  <div class="grupo-factor">
+    <h3><span class="letra letra--e" aria-hidden="true">E</span>Factores ambientales</h3>
+    <div class="rejilla rejilla--3">
+      <article class="factor factor--e">
+        <div class="factor__cartel"><small>E · Ambiental</small><div class="disco"><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v22" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><circle cx="24" cy="35" r="9" fill="currentColor"/><circle cx="24" cy="35" r="4" fill="#f08c3a"/><path d="M34 10h6M34 18h6M34 26h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></div><strong>Cambio climático</strong><span>Menos emisiones</span></div>
+        <div class="factor__texto">Hoy es el factor principal. Se mira cuántos gases de efecto invernadero emite la empresa, si tiene un objetivo de cero emisiones y cuánta energía renovable usa.<br><span class="indicador">Indicador: emisiones de alcance 1, 2 y 3</span></div>
+      </article>
+      <article class="factor factor--e">
+        <div class="factor__cartel"><small>E · Ambiental</small><div class="disco"><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22a16 16 0 0 1 28-8"/><path d="M40 26a16 16 0 0 1-28 8"/></g><path d="M38 6v10H28z" fill="#f08c3a"/><path d="M10 42V32h10z" fill="#f08c3a"/></svg></div><strong>Gestión de recursos</strong><span>Agua, energía y residuos</span></div>
+        <div class="factor__texto">Cómo gestiona el agua, la energía y las materias primas, y qué hace con los residuos. Si los reutiliza, avanza hacia una economía circular.<br><span class="indicador">Indicador: % de electricidad renovable</span></div>
+      </article>
+      <article class="factor factor--e">
+        <div class="factor__cartel"><small>E · Ambiental</small><div class="disco"><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 40C8 20 20 8 42 6c-2 22-14 34-34 34z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path d="M8 40L28 20" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/><circle cx="34" cy="14" r="3.5" fill="#f08c3a"/></svg></div><strong>Biodiversidad</strong><span>Ecosistemas y especies</span></div>
+        <div class="factor__texto">El efecto de su actividad sobre bosques, océanos y especies. Pesa más en sectores como la agricultura, la ganadería o la minería, donde también cuenta el trato a los animales.<br><span class="indicador">Indicador: hectáreas protegidas o restauradas</span></div>
+      </article>
+    </div>
+  </div>
+  <div class="grupo-factor">
+    <h3><span class="letra letra--s" aria-hidden="true">S</span>Factores sociales</h3>
+    <div class="rejilla rejilla--3">
+      <article class="factor factor--s">
+        <div class="factor__cartel"><small>S · Social</small><div class="disco"><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 6v12c0 10-6 18-16 22C14 40 8 32 8 22V10z" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"/><path d="M16 23l6 6 11-12" fill="none" stroke="#f08c3a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><strong>Derechos humanos</strong><span>Sin trabajo forzoso ni infantil</span></div>
+        <div class="factor__texto">Se comprueba que no se vulneran en la empresa ni en sus proveedores, sobre todo los riesgos más típicos: el trabajo forzoso y el infantil. La referencia son los Principios Rectores de la ONU.<br><span class="indicador">Indicador: auditorías sociales realizadas</span></div>
+      </article>
+      <article class="factor factor--s">
+        <div class="factor__cartel"><small>S · Social</small><div class="disco"><svg class="ilu" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="15" width="38" height="25" rx="3" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M17 15v-5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5" fill="none" stroke="currentColor" stroke-width="3.5"/><path d="M5 26h38" stroke="currentColor" stroke-width="3"/><rect x="20" y="23" width="8" height="6" rx="1" fill="#f08c3a"/></svg></div><strong>Condiciones laborales</strong><span>Seguridad y salario digno</span></div>
+        <div class="factor__texto">Cómo se trata al trabajador: seguridad, salud mental, flexibilidad de horario y un salario digno por el trabajo realizado.<br><span class="indicador">Indicador: % de contratos indefinidos</span></div>
+      </article>
+      <article class="factor factor--s">
+        <div class="factor__cartel"><small>S · Social</small><div class="disco"><svg class="ilu" viewBox="0 0 56 48" aria-hidden="true"><g fill="currentColor"><circle cx="12" cy="16" r="6"/><path d="M2 40a10 10 0 0 1 20 0z"/><circle cx="44" cy="16" r="6"/><path d="M34 40a10 10 0 0 1 20 0z"/></g><circle cx="28" cy="12" r="7" fill="#f08c3a"/><path d="M16 42a12 12 0 0 1 24 0z" fill="#f08c3a"/></svg></div><strong>Diversidad</strong><span>Igualdad sin discriminación</span></div>
+        <div class="factor__texto">Que personas con discapacidad, de otras etnias y mujeres trabajen sin discriminación, y que se reduzca la brecha salarial entre hombres y mujeres.<br><span class="indicador">Indicador: % de mujeres en puestos directivos</span></div>
+      </article>
+    </div>
+  </div>
+  <div class="grupo-factor">
+    <h3><span class="letra letra--g" aria-hidden="true">G</span>Factores de gobernanza</h3>
+    <div class="rejilla rejilla--3">
+      <article class="factor factor--g">
+        <div class="factor__cartel"><small>G · Gobernanza</small><div class="disco"><svg class="ilu" viewBox="0 0 56 48" aria-hidden="true"><rect x="20" y="4" width="16" height="11" rx="2" fill="#f08c3a"/><path d="M28 15v9M9 32v-8h38v8M28 24v8" fill="none" stroke="currentColor" stroke-width="3"/><g fill="currentColor"><rect x="2" y="32" width="14" height="11" rx="2"/><rect x="21" y="32" width="14" height="11" rx="2"/><rect x="40" y="32" width="14" height="11" rx="2"/></g></svg></div><strong>Estructura directiva</strong><span>Un consejo equilibrado</span></div>
+        <div class="factor__texto">Quién compone el consejo de administración, cuántos consejeros son independientes y si los sueldos de los altos directivos están justificados.<br><span class="indicador">Indicador: % de consejeros independientes</span></div>
+      </article>
+      <article class="factor factor--g">
+        <div class="factor__cartel"><small>G · Gobernanza</small><div class="disco"><svg class="ilu" viewBox="0 0 64 48" aria-hidden="true"><path d="M4 24c8-12 18-17 28-17s20 5 28 17c-8 12-18 17-28 17S12 36 4 24z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/><circle cx="32" cy="24" r="9" fill="#f08c3a"/><circle cx="32" cy="24" r="3.5" fill="currentColor"/></svg></div><strong>Transparencia</strong><span>Cuentas claras y públicas</span></div>
+        <div class="factor__texto">Si la empresa informa bien de sus cuentas y de sus riesgos: informes financieros, datos ESG e informe de sostenibilidad.<br><span class="indicador">Indicador: informe de sostenibilidad verificado</span></div>
+      </article>
+      <article class="factor factor--g">
+        <div class="factor__cartel"><small>G · Gobernanza</small><div class="disco"><svg class="ilu" viewBox="0 0 56 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M28 6v34M20 42h16M8 12h40M12 12L6 26M12 12l6 14M44 12l-6 14M44 12l6 14"/></g><path d="M5 26h14a7 7 0 0 1-14 0zM37 26h14a7 7 0 0 1-14 0z" fill="#f08c3a"/></svg></div><strong>Ética empresarial</strong><span>Sin corrupción ni fraude</span></div>
+        <div class="factor__texto">Que no esté implicada en casos de corrupción o soborno, que tenga un código ético y un canal de denuncias anónimo para los empleados.<br><span class="indicador">Indicador: código de conducta y canal ético</span></div>
+      </article>
+    </div>
   </div>
   <p class="fuente">Elaboración propia. Sobre derechos humanos: <a href="https://www.business-humanrights.org/es/big-issues/un-guiding-principles-on-business-human-rights/">Principios Rectores de la ONU sobre las empresas y los derechos humanos</a>.</p>
 

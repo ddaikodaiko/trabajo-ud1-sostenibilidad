@@ -1,29 +1,32 @@
 /* ISR e IBEX ESG — hoja de estilos del sitio
-   Paleta: papel frío, tinta verde oscura, tres colores de pilar (E, S, G)
-   y un amarillo de subrayador para las decisiones del equipo y la línea de corte. */
+   Paleta del grupo: azul índigo, naranja y lavanda sobre blanco.
+   Títulos en Playfair Display y texto en Open Sans. */
 
 :root {
-  --papel: #f3f6f4;
+  --papel: #f7f7fc;
   --hoja: #ffffff;
-  --tinta: #10201c;
-  --tinta-2: #44554f;
-  --tinta-3: #6b7b75;
-  --pino: #0e4b43;
-  --pino-2: #166a5e;
-  --linea: #d3dcd7;
-  --linea-2: #e6ece9;
-  --e: #1f8a5b;
-  --s: #2b62b8;
-  --g: #b8552b;
-  --e-suave: #e3f2ea;
-  --s-suave: #e4ecf8;
-  --g-suave: #f8e9e1;
-  --marca: #ffe14a;
-  --marca-suave: #fff6c2;
-  --corte: #c8372d;
+  --tinta: #1b2045;
+  --tinta-2: #474c6e;
+  --tinta-3: #6c7193;
+  --pino: #2f3c8f;
+  --pino-2: #3f4eb0;
+  --azul-titulo: #1f3d7a;
+  --lavanda: #b9bde8;
+  --lavanda-suave: #eceefb;
+  --linea: #d9dbec;
+  --linea-2: #e9eaf5;
+  --e: #b9bde8;
+  --s: #2f3c8f;
+  --g: #f08c3a;
+  --e-suave: #eceefb;
+  --s-suave: #e3e6f6;
+  --g-suave: #fdebdc;
+  --marca: #f08c3a;
+  --marca-suave: #fdebdc;
+  --corte: #b3261e;
   --corte-suave: #fbe7e4;
-  --display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
-  --texto: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --texto: "Open Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --ancho-rail: 17.5rem;
   color-scheme: light;
 }
@@ -60,7 +63,7 @@ a:hover { color: var(--pino-2); text-decoration-thickness: 2px; }
   position: fixed; inset: 0 auto 0 0;
   width: var(--ancho-rail);
   background: var(--pino);
-  color: #eaf3f0;
+  color: #eef0fb;
   padding: 1.75rem 1.25rem 1.25rem;
   display: flex; flex-direction: column; gap: 1.5rem;
   overflow-y: auto;
@@ -75,21 +78,21 @@ a:hover { color: var(--pino-2); text-decoration-thickness: 2px; }
   text-decoration: none;
   display: block;
 }
-.rail__titulo span { display: block; font-family: var(--texto); font-weight: 400; font-size: 0.875rem; line-height: 1.35; color: #b9d3cc; margin-top: 0.5rem; }
+.rail__titulo span { display: block; font-family: var(--texto); font-weight: 400; font-size: 0.875rem; line-height: 1.35; color: #c3c8ee; margin-top: 0.5rem; }
 
 .rail nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
 .rail nav a {
   display: grid; grid-template-columns: 4.6rem 1fr; gap: 0.5rem; align-items: baseline;
   padding: 0.55rem 0.6rem;
-  color: #eaf3f0; text-decoration: none; border-radius: 6px;
+  color: #eef0fb; text-decoration: none; border-radius: 6px;
   font-size: 0.97rem; line-height: 1.3;
 }
-.rail nav a small { color: #a9c8c0; font-size: 0.8rem; }
+.rail nav a small { color: #b3b9e6; font-size: 0.8rem; }
 .rail nav a:hover { background: rgba(255, 255, 255, 0.09); color: #fff; }
 .rail nav a[aria-current="page"] { background: var(--marca); color: var(--tinta); font-weight: 700; }
-.rail nav a[aria-current="page"] small { color: #4b4a1e; }
+.rail nav a[aria-current="page"] small { color: #3a2a14; }
 
-.rail__pie { margin-top: auto; font-size: 0.8rem; line-height: 1.45; color: #b9d3cc; }
+.rail__pie { margin-top: auto; font-size: 0.8rem; line-height: 1.45; color: #c3c8ee; }
 .rail__pie strong { color: #fff; font-weight: 700; }
 
 .menu-boton { display: none; }
@@ -138,8 +141,8 @@ li + li { margin-top: 0.35rem; }
 
 .definicion { background: var(--pino); color: #fff; border-radius: 10px; padding: 1.6rem 1.75rem; }
 .definicion p { font-family: var(--display); font-weight: 500; font-size: 1.32rem; line-height: 1.35; max-width: 46ch; }
-.definicion .fuente { color: #b9d3cc; }
-.definicion .fuente a { color: #eaf3f0; }
+.definicion .fuente { color: #c3c8ee; }
+.definicion .fuente a { color: #eef0fb; }
 
 .decision { background: var(--marca-suave); border-left: 8px solid var(--marca); border-radius: 0 10px 10px 0; padding: 1.2rem 1.4rem; margin-top: 1.4rem; }
 .decision h4 { margin-bottom: 0.4rem; }
@@ -180,7 +183,7 @@ li + li { margin-top: 0.35rem; }
 .tabla--ancha table { min-width: 52rem; }
 .tabla th, .tabla td { text-align: left; vertical-align: top; padding: 0.7rem 0.9rem; border-bottom: 1px solid var(--linea-2); }
 .tabla thead th { background: var(--tinta); color: #fff; font-family: var(--display); font-weight: 600; font-size: 0.98rem; border-bottom: 0; }
-.tabla tbody th { font-weight: 700; background: #f8faf9; width: 11.5rem; }
+.tabla tbody th { font-weight: 700; background: #f8f8fd; width: 11.5rem; }
 .tabla tbody tr:last-child th, .tabla tbody tr:last-child td { border-bottom: 0; }
 .tabla .destacada { background: var(--marca-suave); }
 .tabla thead th.destacada { background: var(--marca); color: var(--tinta); }
@@ -194,10 +197,10 @@ li + li { margin-top: 0.35rem; }
 .escala__nivel { height: 5.5rem; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: clamp(0.85rem, 2.1vw, 1.5rem); border-radius: 4px; }
 .escala__nivel--dentro { background: var(--pino); color: #fff; }
 .escala__nivel--corte { background: var(--marca); color: var(--tinta); box-shadow: 0 0 0 3px var(--tinta); position: relative; z-index: 1; }
-.escala__nivel--fuera { background: repeating-linear-gradient(135deg, #dfe6e2 0 6px, #cdd7d2 6px 12px); color: var(--tinta-2); }
+.escala__nivel--fuera { background: repeating-linear-gradient(135deg, #e6e8f4 0 6px, #d5d8ec 6px 12px); color: var(--tinta-2); }
 .escala__leyenda { display: grid; grid-template-columns: 7fr 5fr; gap: 3px; margin-top: 0.6rem; font-size: 0.95rem; line-height: 1.35; }
 .escala__leyenda div { padding-top: 0.5rem; border-top: 4px solid var(--pino); }
-.escala__leyenda div + div { border-top-color: #b7c4be; color: var(--tinta-2); }
+.escala__leyenda div + div { border-top-color: #c3c6de; color: var(--tinta-2); }
 .escala__leyenda strong { display: block; font-family: var(--display); font-size: 1.1rem; }
 
 /* ---------- Línea de tiempo ---------- */
@@ -210,17 +213,17 @@ li + li { margin-top: 0.35rem; }
 .hitos { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; max-width: none; }
 .hitos li { margin: 0; display: grid; grid-template-columns: 5.2rem 1fr; gap: 0.9rem; background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 0.65rem 0.9rem; }
 .hitos .anio { font-family: var(--display); font-weight: 700; font-variant-numeric: tabular-nums; color: var(--pino); }
-.hitos .es-ibex { background: var(--marca-suave); border-color: #e9d466; }
+.hitos .es-ibex { background: var(--marca-suave); border-color: #f2c199; }
 
 /* ---------- Espectro de estrategias ---------- */
 
 .espectro { margin-top: 1.4rem; }
 .espectro__eje { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--tinta-2); margin-bottom: 0.4rem; }
-.espectro__barra { height: 10px; border-radius: 5px; background: linear-gradient(90deg, #b7c4be, var(--pino)); }
+.espectro__barra { height: 10px; border-radius: 5px; background: linear-gradient(90deg, #c3c6de, var(--pino)); }
 .espectro__pasos { list-style: none; padding: 0; margin: 0.8rem 0 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.5rem; max-width: none; }
 .espectro__pasos li { margin: 0; background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 0.7rem 0.7rem 0.8rem; font-size: 0.88rem; line-height: 1.35; color: var(--tinta-2); }
 .espectro__pasos strong { display: block; font-size: 0.97rem; color: var(--tinta); margin-bottom: 0.25rem; line-height: 1.2; }
-.espectro__pasos .usa-ibex { background: var(--marca-suave); border-color: #e9d466; }
+.espectro__pasos .usa-ibex { background: var(--marca-suave); border-color: #f2c199; }
 
 /* ---------- Flujos y embudo ---------- */
 
@@ -228,14 +231,14 @@ li + li { margin-top: 0.35rem; }
 .flujo li { margin: 0; position: relative; background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; padding: 0.9rem 1rem; font-size: 0.93rem; line-height: 1.4; color: var(--tinta-2); }
 .flujo li strong { display: block; color: var(--tinta); font-size: 1rem; margin-bottom: 0.2rem; }
 .flujo li + li::before { content: ""; position: absolute; left: -1.25rem; top: 50%; width: 0.9rem; height: 0.9rem; border-top: 3px solid var(--pino); border-right: 3px solid var(--pino); transform: translateY(-50%) rotate(45deg); }
-.flujo li.final { background: var(--pino); border-color: var(--pino); color: #d5e6e1; }
+.flujo li.final { background: var(--pino); border-color: var(--pino); color: #dfe2f6; }
 .flujo li.final strong { color: #fff; }
 
 .embudo { list-style: none; padding: 0; margin: 1.4rem 0 0; display: grid; gap: 0.5rem; max-width: 46rem; counter-reset: paso; }
 .embudo li { margin: 0 auto; width: var(--w, 100%); background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; padding: 0.85rem 1.1rem 0.9rem 3.4rem; position: relative; counter-increment: paso; font-size: 0.95rem; line-height: 1.4; color: var(--tinta-2); }
 .embudo li::before { content: counter(paso); position: absolute; left: 0.9rem; top: 0.85rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--tinta); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 700; font-size: 0.95rem; }
 .embudo li strong { display: block; color: var(--tinta); font-size: 1.02rem; }
-.embudo li.resultado { background: var(--pino); border-color: var(--pino); color: #d5e6e1; }
+.embudo li.resultado { background: var(--pino); border-color: var(--pino); color: #dfe2f6; }
 .embudo li.resultado strong { color: #fff; }
 .embudo li.resultado::before { background: var(--marca); color: var(--tinta); content: "✓"; }
 
@@ -246,7 +249,7 @@ li + li { margin-top: 0.35rem; }
 .barras__nombre { line-height: 1.25; }
 .barras__pista { display: flex; align-items: center; gap: 0.5rem; }
 .barras__barra { height: 20px; width: calc(var(--v) * 1%); min-width: 3px; background: var(--color, var(--pino)); border-radius: 0 4px 4px 0; }
-.barras__barra--tenue { background: #9fb3ac; }
+.barras__barra--tenue { background: #b9bde8; }
 .barras__valor { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
 .barras__fila:hover .barras__barra { filter: brightness(1.15); }
 .grafico { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; padding: 1.2rem 1.3rem 1.3rem; }
@@ -256,7 +259,7 @@ li + li { margin-top: 0.35rem; }
 /* Medidores de avance hacia un objetivo */
 .avance { margin-top: 1rem; display: grid; gap: 1.1rem; }
 .avance__fila h4 { font-size: 0.98rem; }
-.avance__pista { position: relative; height: 16px; background: #e3e9e6; border-radius: 4px; margin-top: 0.45rem; }
+.avance__pista { position: relative; height: 16px; background: #e6e8f4; border-radius: 4px; margin-top: 0.45rem; }
 .avance__hecho { position: absolute; inset: 0 auto 0 0; width: calc(var(--v) * 1%); background: var(--color, var(--e)); border-radius: 4px; }
 .avance__pie { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.88rem; color: var(--tinta-2); margin-top: 0.3rem; }
 .avance__pie strong { color: var(--tinta); }
@@ -265,7 +268,7 @@ li + li { margin-top: 0.35rem; }
 
 .fichas { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; flex-wrap: wrap; gap: 0.4rem; max-width: none; }
 .fichas li { margin: 0; background: var(--hoja); border: 1px solid var(--linea); border-radius: 6px; padding: 0.25rem 0.6rem; font-size: 0.9rem; }
-.fichas .nueva { background: var(--marca-suave); border-color: #e9d466; font-weight: 700; }
+.fichas .nueva { background: var(--marca-suave); border-color: #f2c199; font-weight: 700; }
 .fichas .elegida { background: var(--pino); border-color: var(--pino); color: #fff; font-weight: 700; }
 .fichas--fuera li { background: transparent; border-style: dashed; color: var(--tinta-2); text-decoration: line-through; text-decoration-color: var(--corte); }
 .leyenda { display: flex; flex-wrap: wrap; gap: 1.2rem; margin-top: 0.8rem; font-size: 0.88rem; color: var(--tinta-2); }
@@ -331,7 +334,7 @@ li + li { margin-top: 0.35rem; }
 .cambio h4 { margin-bottom: 0.5rem; }
 .cambio ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .cambio li { margin: 0; border-radius: 999px; padding: 0.2rem 0.75rem; font-size: 0.93rem; background: var(--papel); border: 1px solid var(--linea); }
-.cambio li.mas { background: var(--marca-suave); border-color: #e9d466; font-weight: 700; }
+.cambio li.mas { background: var(--marca-suave); border-color: #f2c199; font-weight: 700; }
 .cambio .flecha { align-self: center; width: 1.2rem; height: 1.2rem; border-top: 4px solid var(--pino); border-right: 4px solid var(--pino); transform: rotate(45deg); background: none; border-left: 0; border-bottom: 0; border-radius: 0; padding: 0; }
 
 /* ---------- Referencias ---------- */
@@ -416,6 +419,110 @@ figure { margin-inline: 0; }
 .estrategia h4 { font-family: var(--display); font-size: 1.25rem; margin-bottom: 0.5rem; }
 .estrategia p { font-size: 0.97rem; line-height: 1.5; }
 .estrategia .ejemplo { margin-top: 0.7rem; font-size: 0.88rem; color: var(--tinta-2); background: var(--papel); border-radius: 6px; padding: 0.4rem 0.6rem; }
-.estrategia.usa-ibex { background: var(--marca-suave); border-color: #e9d466; border-top-color: var(--marca); }
+.estrategia.usa-ibex { background: var(--marca-suave); border-color: #f2c199; border-top-color: var(--marca); }
 .estrategia.usa-ibex .ejemplo { background: var(--hoja); }
 .tabla tr.fila-ibex th, .tabla tr.fila-ibex td { background: var(--marca-suave); }
+
+/* =====================================================================
+   Estética común con el sitio del grupo: serif en títulos, índigo,
+   naranja y lavanda, e infografías de “tradicional VS ISR”.
+   ===================================================================== */
+
+h1 { font-weight: 700; letter-spacing: 0; }
+h2 { font-weight: 500; text-transform: uppercase; letter-spacing: 0.01em; font-size: clamp(1.35rem, 2.3vw, 1.8rem); line-height: 1.2; }
+h3 { font-weight: 600; color: var(--azul-titulo); }
+.pilar h3, .balanza h3, .solucion h3 { color: var(--tinta); }
+.rail__titulo { font-weight: 700; }
+.tabla thead th, .hitos .anio, .letra, .embudo li::before, .equipo .inicial { font-family: var(--texto); }
+.tabla thead th { font-weight: 700; }
+.letra { font-weight: 800; }
+.pilar--e .letra, .letra--e, .pilar--g .letra, .letra--g { color: var(--tinta); }
+.balanza h3 { border-bottom-color: var(--pino); }
+.balanza > div + div h3 { border-bottom-color: var(--corte); }
+.avance__hecho { background: var(--color, var(--pino)); }
+.simulador output[data-estado="si"] { background: var(--s-suave); border-left-color: var(--pino); }
+.seccion > h2 .de-enunciado, .apartado > h3 .de-enunciado { color: var(--marca); }
+.cabecera .parte, .mapa .parte { font-style: italic; }
+.equipo .inicial { color: var(--tinta); }
+
+.ilu { display: block; }
+.ilu * { vector-effect: non-scaling-stroke; }
+
+/* Número en círculo naranja + título, como en las infografías del grupo */
+.rotulo { display: flex; align-items: center; gap: 0.6rem; font-family: var(--texto); font-weight: 800; font-size: 1.12rem; text-transform: uppercase; letter-spacing: 0.01em; color: var(--pino); line-height: 1.15; }
+.rotulo b { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; background: var(--marca); color: var(--tinta); display: grid; place-items: center; font-size: 1rem; }
+
+/* Tradicional VS ISR */
+.versus { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; padding: 1.1rem 1.1rem 1.2rem; }
+.versus__par { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; margin-top: 0.8rem; }
+.versus__lado { padding: 0.9rem 0.7rem 1rem; text-align: center; display: grid; justify-items: center; align-content: start; gap: 0.5rem; min-height: 11.5rem; }
+.versus__lado--trad { background: var(--pino); color: #fff; }
+.versus__lado--isr { background: var(--marca); color: var(--tinta); }
+.versus__lado small { font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; }
+.versus__lado--trad small { color: #f6b98a; }
+.versus__lado .ilu { height: 3.4rem; width: auto; margin: 0.4rem 0 0.2rem; }
+.versus__lado strong { font-size: 0.92rem; line-height: 1.25; }
+.versus__lado span { font-size: 0.78rem; line-height: 1.3; opacity: 0.92; }
+.versus__vs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 2rem; height: 2rem; border-radius: 50%; background: #fff; color: var(--pino); display: grid; place-items: center; font-weight: 800; font-size: 0.7rem; box-shadow: 0 0 0 2px var(--papel); }
+.versus > p { margin-top: 0.9rem; font-size: 0.96rem; line-height: 1.5; }
+.letras-esg { display: flex; gap: 0.35rem; height: 3.4rem; align-items: center; margin: 0.4rem 0 0.2rem; }
+.letras-esg i { font-style: normal; width: 2.1rem; height: 2.1rem; border-radius: 50%; background: var(--pino); color: var(--marca); display: grid; place-items: center; font-weight: 800; }
+
+/* Escalera “De excluir a medir” */
+.escalera { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; padding: 1.3rem 1.4rem 1.4rem; }
+.escalera h4 { font-family: var(--texto); font-weight: 800; font-size: 1.7rem; line-height: 1.05; color: var(--pino); }
+.escalera .nota { margin-top: 0.4rem; }
+.escalera__leyenda { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; margin: 0.9rem 0 0; padding: 0; list-style: none; font-size: 0.86rem; max-width: none; }
+.escalera__leyenda li { margin: 0; }
+.escalera__leyenda li::before { content: ""; display: inline-block; width: 0.8rem; height: 0.8rem; margin-right: 0.4rem; vertical-align: -0.08em; background: var(--c); }
+.escalera__barras { list-style: none; margin: 1.2rem 0 0; padding: 0; max-width: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; align-items: end; height: 17rem; }
+.escalera__barras li { margin: 0; height: calc(var(--h) * 1%); background: var(--c); color: var(--t); display: flex; flex-direction: column; justify-content: space-between; padding: 0.5rem 0.3rem; text-align: center; font-size: 0.78rem; line-height: 1.2; }
+.escalera__barras li strong { font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+.fase-1 { --c: var(--lavanda); --t: var(--tinta); }
+.fase-2 { --c: var(--pino); --t: #fff; }
+.fase-3 { --c: var(--marca); --t: var(--tinta); }
+
+/* Teselas de las tres estrategias principales */
+.tesela { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.tesela__imagen { min-height: 14.5rem; padding: 1.2rem; display: grid; place-items: center; }
+.tesela--1 .tesela__imagen { background: var(--lavanda); }
+.tesela--2 .tesela__imagen { background: var(--pino); }
+.tesela--3 .tesela__imagen { background: var(--marca); }
+.tesela__texto { padding: 1rem 1.2rem 1.2rem; }
+.tesela__texto h4 { font-family: var(--display); font-weight: 500; font-size: 1.3rem; text-transform: uppercase; color: var(--azul-titulo); margin-bottom: 0.5rem; }
+.tesela__texto p { font-size: 0.96rem; line-height: 1.5; }
+.tesela__texto .ejemplo { margin-top: 0.7rem; font-size: 0.88rem; color: var(--tinta-2); background: var(--papel); border-radius: 6px; padding: 0.4rem 0.6rem; }
+.tesela__texto .sello-ibex { display: inline-block; margin-top: 0.7rem; background: var(--marca-suave); border: 1px solid #f2c199; border-radius: 999px; padding: 0.1rem 0.7rem; font-size: 0.84rem; font-weight: 700; }
+.prohibidos { display: flex; gap: 1rem; justify-content: center; }
+.prohibidos .ilu { width: 5.6rem; height: 5.6rem; }
+.pastillas { display: grid; gap: 0.6rem; width: 100%; max-width: 17rem; }
+.pastillas div { background: #fff; border-radius: 8px; padding: 0.5rem 0.7rem; display: grid; grid-template-columns: auto 1fr; gap: 0.1rem 0.7rem; align-items: center; }
+.pastillas i { grid-row: span 2; font-style: normal; width: 2.4rem; height: 2.4rem; border-radius: 50%; background: var(--marca); color: var(--pino); display: grid; place-items: center; font-weight: 800; font-size: 1.15rem; }
+.pastillas strong { color: var(--pino); font-size: 0.98rem; line-height: 1.1; align-self: end; }
+.pastillas span { font-size: 0.74rem; color: var(--tinta); line-height: 1.2; align-self: start; }
+.cuadros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; width: 100%; max-width: 15rem; }
+.cuadros div { background: #fff; border-radius: 8px; padding: 0.7rem 0.4rem 0.6rem; display: grid; justify-items: center; gap: 0.3rem; color: var(--pino); font-weight: 700; font-size: 0.88rem; }
+.cuadros .ilu { width: 2.6rem; height: 2.6rem; }
+
+/* Tarjetas de factor: una por cada factor E, S y G */
+.grupo-factor { margin-top: 2rem; }
+.grupo-factor > h3 { font-family: var(--display); font-weight: 500; text-transform: uppercase; font-size: 1.3rem; color: var(--tinta); display: flex; align-items: center; gap: 0.6rem; }
+.factor { display: flex; flex-direction: column; background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; }
+.factor__cartel { padding: 1rem 0.8rem 1.1rem; display: grid; justify-items: center; gap: 0.5rem; text-align: center; background: var(--c); color: var(--t); }
+.factor--e { --c: var(--lavanda); --t: var(--tinta); }
+.factor--s { --c: var(--pino); --t: #fff; }
+.factor--g { --c: var(--marca); --t: var(--tinta); }
+.factor__cartel small { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.factor__cartel .disco { width: 6rem; height: 6rem; border-radius: 50%; background: #fff; display: grid; place-items: center; color: var(--pino); }
+.factor__cartel .disco .ilu { width: 3.4rem; height: 3.4rem; }
+.factor__cartel strong { font-size: 1.12rem; line-height: 1.15; }
+.factor__cartel span { font-size: 0.82rem; line-height: 1.25; }
+.factor__texto { padding: 0.9rem 1rem 1.1rem; font-size: 0.95rem; line-height: 1.5; color: var(--tinta-2); }
+.factor__texto .indicador { display: inline-block; margin-top: 0.6rem; background: var(--papel); border-radius: 6px; padding: 0.15rem 0.5rem; font-size: 0.84rem; color: var(--tinta); }
+
+@media (max-width: 56rem) {
+  .escalera__barras { grid-template-columns: minmax(0, 1fr); height: auto; align-items: stretch; gap: 4px; }
+  .escalera__barras li { height: auto; width: calc(34% + var(--h) * 0.66%); flex-direction: row-reverse; justify-content: space-between; align-items: center; gap: 0.6rem; text-align: left; padding: 0.45rem 0.6rem; font-size: 0.84rem; }
+  .versus__lado { min-height: 10.5rem; }
+}
+.versus__lado small { min-height: 2.6em; display: grid; align-items: center; }
