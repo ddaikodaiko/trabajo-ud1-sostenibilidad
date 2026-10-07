@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Monta el sitio estático: une cada fragmento de src/ con la plantilla común."""
+import hashlib
 import re
 from pathlib import Path
 
@@ -109,19 +110,19 @@ def _fuentes(clave: str, anchos: tuple, alto_por_ancho: float) -> tuple:
 
 
 def foto_tarjeta(clave: str) -> str:
-    """Foto de la parte alta de una tarjeta de factor (formato 8:5)."""
-    src, srcset = _fuentes(clave, (480, 960), 5 / 8)
+    """Foto de la parte alta de una tarjeta de factor (formato 2:1)."""
+    src, srcset = _fuentes(clave, (480, 960), 1 / 2)
     alt = FOTOS[clave][4]
-    return (f'<img class="factor__foto" data-foto src="{src}" srcset="{srcset}" '
-            f'sizes="(max-width: 56rem) 92vw, 20rem" width="960" height="600" alt="{alt}" loading="lazy" decoding="async">')
+    return (f'<div class="factor__marco"><img class="factor__foto" data-foto src="{src}" srcset="{srcset}" '
+            f'sizes="(max-width: 56rem) 92vw, 20rem" width="960" height="480" alt="{alt}" loading="lazy" decoding="async"></div>')
 
 
 def foto_banda(clave: str, pie: str) -> str:
-    """Foto ancha con pie a mano y crédito (formato 21:9)."""
-    src, srcset = _fuentes(clave, (640, 1280, 1920), 27 / 64)
+    """Foto ancha con pie a mano y crédito (formato 2:1)."""
+    src, srcset = _fuentes(clave, (800, 1600), 1 / 2)
     _, _, autor, pagina, alt, _ = FOTOS[clave]
     return (f'<figure class="foto-banda"><img data-foto src="{src}" srcset="{srcset}" '
-            f'sizes="(max-width: 66rem) 94vw, 60rem" width="1920" height="810" alt="{alt}" decoding="async">'
+            f'sizes="(max-width: 50rem) 92vw, 46rem" width="1600" height="800" alt="{alt}" decoding="async">'
             f'<figcaption><span class="foto-banda__pie">{pie}</span>'
             f'<span class="foto-banda__credito">Foto: <a href="{pagina}">{autor}</a>, Unsplash</span></figcaption></figure>')
 
@@ -146,7 +147,7 @@ PLANTILLA = """<!doctype html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Open+Sans:ital,wght@0,400..800;1,400&family=Playfair+Display:ital,wght@0,500..700;1,600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500..700&family=Open+Sans:ital,wght@0,400..800;1,400&family=Playfair+Display:ital,wght@0,500..700;1,600&display=swap"></noscript>
-<link rel="stylesheet" href="assets/estilos.css">
+<link rel="stylesheet" href="assets/estilos.css?v={v}">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -167,7 +168,7 @@ PLANTILLA = """<!doctype html>
 <p class="pie">Trabajo de clase elaborado por {equipo}. Las cifras llevan su fecha y su fuente; la lista completa está en <a href="referencias.html">Referencias y webs</a>.</p>
 </main>
 </div>
-<script src="assets/sitio.js" defer></script>
+<script src="assets/sitio.js?v={v}" defer></script>
 </body>
 </html>
 """
@@ -203,7 +204,16 @@ def siguiente(i: int) -> str:
     return '<nav class="siguiente" aria-label="Página anterior y siguiente">' + "".join(partes) + "</nav>"
 
 
+def version() -> str:
+    """Huella corta del contenido de estilos y guion."""
+    h = hashlib.sha1()
+    for nombre in ("estilos.css", "sitio.js"):
+        h.update((SITIO / "assets" / nombre).read_bytes())
+    return h.hexdigest()[:8]
+
+
 def main() -> None:
+    v = version()
     for i, (archivo, _, _, titulo, descripcion) in enumerate(PAGINAS):
         cuerpo = (SRC / archivo).read_text(encoding="utf-8")
         # ilustraciones: {{ilu:nombre}}
@@ -222,6 +232,7 @@ def main() -> None:
             equipo=EQUIPO,
             cuerpo=cuerpo,
             siguiente=siguiente(i),
+            v=v,
         )
         (SITIO / archivo).write_text(html, encoding="utf-8")
         print("ok", archivo, len(html))
