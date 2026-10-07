@@ -401,3 +401,21 @@ figure { margin-inline: 0; }
 .rejilla > * { margin-top: 0; }
 .tabla td:has(> .letra--mini) { white-space: nowrap; }
 .espectro__pasos li { overflow-wrap: anywhere; hyphens: auto; }
+
+/* ---------- Parte 1: comparación en cuatro puntos y estrategias principales ---------- */
+.frente { background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; overflow: hidden; }
+.frente h4 { font-family: var(--display); font-size: 1.2rem; padding: 0.8rem 1.1rem 0.6rem; }
+.frente dl { margin: 0; }
+.frente dl > div { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr); gap: 0.8rem; padding: 0.65rem 1.1rem; border-top: 1px solid var(--linea-2); font-size: 0.96rem; line-height: 1.45; }
+.frente dt { font-weight: 700; font-size: 0.88rem; color: var(--tinta-3); padding-top: 0.1rem; }
+.frente dd { margin: 0; }
+.frente dl > div.isr { background: var(--marca-suave); }
+.frente dl > div.isr dt { color: var(--tinta); }
+
+.estrategia { background: var(--hoja); border: 1px solid var(--linea); border-top: 8px solid var(--pino); border-radius: 10px; padding: 1.1rem 1.2rem 1.2rem; }
+.estrategia h4 { font-family: var(--display); font-size: 1.25rem; margin-bottom: 0.5rem; }
+.estrategia p { font-size: 0.97rem; line-height: 1.5; }
+.estrategia .ejemplo { margin-top: 0.7rem; font-size: 0.88rem; color: var(--tinta-2); background: var(--papel); border-radius: 6px; padding: 0.4rem 0.6rem; }
+.estrategia.usa-ibex { background: var(--marca-suave); border-color: #e9d466; border-top-color: var(--marca); }
+.estrategia.usa-ibex .ejemplo { background: var(--hoja); }
+.tabla tr.fila-ibex th, .tabla tr.fila-ibex td { background: var(--marca-suave); }
