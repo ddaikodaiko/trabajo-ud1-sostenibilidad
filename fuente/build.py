@@ -95,11 +95,22 @@ PLANTILLA = """<!doctype html>
 """
 
 
+# Nombres breves para el menú horizontal de escritorio
+BREVES = {
+    "index.html": "Contexto",
+    "parte-1-isr.html": "Marco teórico",
+    "parte-2-ibex-esg.html": "Índice IBEX ESG",
+    "parte-3-inditex.html": "Inditex",
+    "parte-4-reflexion.html": "Reflexión crítica",
+    "referencias.html": "Referencias",
+}
+
+
 def menu(actual: str) -> str:
     filas = []
     for archivo, corta, larga, _, _ in PAGINAS:
         marca = ' aria-current="page"' if archivo == actual else ""
-        filas.append(f'      <li><a href="{archivo}"{marca}><small>{corta}</small>{larga}</a></li>')
+        filas.append(f'      <li><a href="{archivo}"{marca}><small>{corta}</small><span class="largo">{larga}</span><span class="breve" aria-hidden="true">{BREVES[archivo]}</span></a></li>')
     return "\n".join(filas)
 
 
